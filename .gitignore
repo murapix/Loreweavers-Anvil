@@ -1,0 +1,28 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+libs/librarianlib-1.0.jar
+kotlinlib/
+
+.DS_Store
+/src/main/java/com/teamwizardry/wizardry/client/quaeritumrender/

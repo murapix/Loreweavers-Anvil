@@ -1,0 +1,80 @@
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "$mod_version"
+group = "com.teamwizardry"
+archivesBaseName = "loreweavers-anvil"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+minecraft {
+    version = "$mc_version-$forge_version"
+    runDir = "run"
+    mappings = "$mcp_version"
+
+    replace 'GRADLE:VERSION', "$mod_version"
+    replace 'required-before:librarianlib', "required-before:librarianlib@[$liblib_version]"
+
+    replaceIn 'LoreweaversAnvil.java'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = "http://maven.bluexin.be/repository/snapshots/" }
+	maven { url = "http://dvs1.progwml6.com/files/maven" }
+	maven { url = "http://tehnut.info/maven" }
+	maven { url = "http://maven.tterrag.com/" }
+    maven { url = "http://maven.thiakil.com" }
+}
+
+dependencies {
+	compile ("com.teamwizardry.librarianlib:librarianlib-1.12.2:$liblib_version-SNAPSHOT:deobf") {changing = true}
+	deobfCompile "mezz.jei:jei_1.12:$jei_version:api"
+	runtime "mezz.jei:jei_1.12:$jei_version"
+	runtime "team.chisel.ctm:CTM:$ctm_version"
+    deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+
+    // https://mvnrepository.com/artifact/ai.api/libai
+    //compile group: 'ai.api', name: 'libai', version: '1.6.12'
+
+}
+
+processResources {
+    inputs.property 'mod_version', project.version
+    inputs.property 'mc_version', project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info', 'pack.mcmeta'
+        expand  'mod_version': project.version,
+                'mc_version': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info', 'pack.mcmeta'
+    }
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = compileJava.destinationDir
+        testOutputDir = compileTestJava.destinationDir
+    }
+}

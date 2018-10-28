@@ -1,0 +1,16 @@
+[
+{
+  "modid": "loreweavers_anvil",
+  "name": "Loreweaver's Anvil",
+  "description": "",
+  "version": "${mod_version}",
+  "mcversion": "${mc_version}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Escapee"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

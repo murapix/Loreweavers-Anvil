@@ -1,0 +1,11 @@
+{
+	"spritesheet": {
+		"textureWidth": 256,
+		"textureHeight": 256,
+		"sprites": {
+			"background": [0, 0, 176, 166],
+			"selected": [0, 166, 110, 64],
+			"unselected": [110, 166, 110, 64]
+		}
+	}
+}

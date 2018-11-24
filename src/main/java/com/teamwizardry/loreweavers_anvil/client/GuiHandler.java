@@ -13,7 +13,7 @@ public class GuiHandler implements IGuiHandler
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return new ContainerLore(player, world, new BlockPos(x, y, z));
+		return new ContainerLore(player, world, new BlockPos(x, y, z)).impl;
 	}
 	
 	@Override

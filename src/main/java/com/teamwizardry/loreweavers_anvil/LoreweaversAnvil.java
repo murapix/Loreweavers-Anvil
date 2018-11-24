@@ -16,9 +16,9 @@ public class LoreweaversAnvil
 	public static final String MOD_ID =  "loreweavers_anvil";
 	public static final String MOD_NAME = "Loreweaver's Anvil";
 	public static final String MOD_VERSION = "GRADLE:VERSION";
-	public static final String CLIENT_PROXY = "com.teamwizardry.magnetrings.proxy.ClientProxy";
-	public static final String SERVER_PROXY = "com.teamwizardry.magnetrings.proxy.ServerProxy";
-	public static final String DEPENDENCIES = "required-after:librarianlib"/*, required-after:quaeritum"*/;
+	public static final String CLIENT_PROXY = "com.teamwizardry.loreweavers_anvil.proxy.ClientProxy";
+	public static final String SERVER_PROXY = "com.teamwizardry.loreweavers_anvil.proxy.ServerProxy";
+	public static final String DEPENDENCIES = "required-after:librarianlib";
 	
 	@SidedProxy(clientSide = CLIENT_PROXY, serverSide = SERVER_PROXY)
 	public static CommonProxy proxy;

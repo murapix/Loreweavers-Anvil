@@ -1,11 +1,8 @@
 package com.teamwizardry.loreweavers_anvil.common.blocks;
 
 import com.teamwizardry.librarianlib.features.base.block.BlockModFalling;
-import com.teamwizardry.librarianlib.features.base.block.tile.module.ModuleInventory;
-import com.teamwizardry.loreweavers_anvil.LoreweaversAnvil;
-import com.teamwizardry.loreweavers_anvil.client.GuiHandler;
+import com.teamwizardry.librarianlib.features.container.GuiHandler;
 import com.teamwizardry.loreweavers_anvil.client.container.ContainerLore;
-import com.teamwizardry.loreweavers_anvil.init.BlockRegistry;
 
 import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockHorizontal;
@@ -18,17 +15,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -83,7 +75,7 @@ public class BlockLoreAnvil extends BlockModFalling
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
-		player.openGui(LoreweaversAnvil.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
+		GuiHandler.open(ContainerLore.containerLoc, player, pos);
 		return true;
 	}
 	

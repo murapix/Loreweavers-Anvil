@@ -53,9 +53,9 @@ public class GuiLore extends GuiContainerBase
 		ComponentTextField text = new ComponentTextField(59, 10, 110, 64);
 		textBackground.add(text);
 		
-//		text.BUS.hook(GuiComponentEvents.ComponentTickEvent.class, event -> {
-//			textBackground.setSprite(text.isFocused() ? SELECTED : UNSELECTED);
-//		});
+		text.BUS.hook(GuiComponentEvents.ComponentTickEvent.class, event -> {
+			textBackground.setSprite(text.isFocused() ? SELECTED : UNSELECTED);
+		});
 		
 		output.BUS.hook(GuiComponentEvents.MouseInEvent.class, event -> {
 			if (anvilHandler.getStackInSlot(0).isEmpty())

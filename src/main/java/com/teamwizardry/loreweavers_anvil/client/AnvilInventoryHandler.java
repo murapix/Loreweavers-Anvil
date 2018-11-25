@@ -1,9 +1,9 @@
 package com.teamwizardry.loreweavers_anvil.client;
 
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
-public class AnvilInventoryHandler implements IItemHandler
+public class AnvilInventoryHandler implements IItemHandlerModifiable
 {
 	public ItemStack[] slots = new ItemStack[2];
 	
@@ -54,6 +54,12 @@ public class AnvilInventoryHandler implements IItemHandler
 	public int getSlotLimit(int slot)
 	{
 		return 1;
+	}
+
+	@Override
+	public void setStackInSlot(int slot, ItemStack stack)
+	{
+		insertItem(slot, stack, false);
 	}
 
 }

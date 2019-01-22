@@ -31,12 +31,20 @@ public class AnvilInventoryHandler implements IItemHandlerModifiable
 		if (slot != 0)
 			return stack;
 		
+		if (simulate)
+		{
+			ItemStack ret = stack.copy();
+			ret.shrink(1);
+			return ret;
+		}
+		
 		slots[0] = stack.copy();
 		slots[1] = stack.copy();
-		stack.shrink(1);
-		if (stack.isEmpty())
-			stack = ItemStack.EMPTY;
-		return stack;
+		ItemStack ret = stack.copy();
+		ret.shrink(1);
+		if (ret.isEmpty())
+			ret = ItemStack.EMPTY;
+		return ret;
 	}
 
 	@Override
@@ -44,9 +52,10 @@ public class AnvilInventoryHandler implements IItemHandlerModifiable
 	{
 		if (slot >= slots.length || slot < 0)
 			throw new ArrayIndexOutOfBoundsException();
-		ItemStack stack = slots[slot];
-		for (int i = 0; i < slots.length; i++)
-			slots[i] = ItemStack.EMPTY;
+		ItemStack stack = slots[slot].copy();
+		if (!simulate)
+			for (int i = 0; i < slots.length; i++)
+				slots[i] = ItemStack.EMPTY;
 		return stack;
 	}
 

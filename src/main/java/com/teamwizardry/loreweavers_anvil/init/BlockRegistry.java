@@ -1,6 +1,6 @@
 package com.teamwizardry.loreweavers_anvil.init;
 
-import com.teamwizardry.loreweavers_anvil.common.blocks.BlockLoreAnvil;
+import com.teamwizardry.loreweavers_anvil.common.BlockLoreAnvil;
 
 public class BlockRegistry
 {

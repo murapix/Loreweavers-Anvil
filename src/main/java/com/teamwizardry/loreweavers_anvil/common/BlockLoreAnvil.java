@@ -1,8 +1,8 @@
-package com.teamwizardry.loreweavers_anvil.common.blocks;
+package com.teamwizardry.loreweavers_anvil.common;
 
 import com.teamwizardry.librarianlib.features.base.block.BlockModFalling;
 import com.teamwizardry.librarianlib.features.container.GuiHandler;
-import com.teamwizardry.loreweavers_anvil.client.container.ContainerLore;
+import com.teamwizardry.loreweavers_anvil.client.ContainerLore;
 
 import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockHorizontal;

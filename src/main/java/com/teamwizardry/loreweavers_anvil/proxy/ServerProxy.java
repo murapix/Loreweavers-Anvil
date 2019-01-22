@@ -1,11 +1,18 @@
 package com.teamwizardry.loreweavers_anvil.proxy;
 
+import java.util.HashMap;
+import java.util.UUID;
+
+import com.teamwizardry.loreweavers_anvil.client.ContainerLore;
+
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ServerProxy extends CommonProxy
 {
+	public final HashMap<UUID, ContainerLore> playerMap = new HashMap<>();
+	
     @Override
     public void onPreInit(FMLPreInitializationEvent event) {
         super.onPreInit(event);

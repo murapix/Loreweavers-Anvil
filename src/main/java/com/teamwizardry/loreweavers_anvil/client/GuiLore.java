@@ -1,7 +1,5 @@
 package com.teamwizardry.loreweavers_anvil.client;
 
-import java.util.UUID;
-
 import com.teamwizardry.librarianlib.features.container.InventoryWrapper;
 import com.teamwizardry.librarianlib.features.gui.component.GuiComponentEvents;
 import com.teamwizardry.librarianlib.features.gui.components.ComponentSprite;
@@ -51,10 +49,8 @@ public class GuiLore extends GuiContainerBase
 		text.BUS.hook(GuiComponentEvents.KeyUpEvent.class, event -> {
 			if (anvilHandler.getStackInSlot(0).isEmpty())
 				return;
-			
-			UUID playerID = container.player.getUniqueID();
-			ContainerLore.setLoreText(text.getText(), playerID);
-			PacketHandler.NETWORK.sendToServer(new PacketSetLore(text.getText(), playerID));
+			ContainerLore.setLoreText(text.getText(), container.anvilHandler.getStackInSlot(1));
+			PacketHandler.NETWORK.sendToServer(new PacketSetLore(text.getText()));
 		});
 		
 		background.add(input, output, text);

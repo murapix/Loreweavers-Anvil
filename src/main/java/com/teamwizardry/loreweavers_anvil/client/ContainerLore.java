@@ -1,6 +1,5 @@
 package com.teamwizardry.loreweavers_anvil.client;
 
-import java.util.UUID;
 import java.util.stream.Stream;
 
 import com.teamwizardry.librarianlib.features.container.ContainerBase;
@@ -72,17 +71,12 @@ public class ContainerLore extends ContainerBase
 		LoreweaversAnvil.proxy.playerMap.remove(player.getUniqueID());
 	}
 	
-	public static void setLoreText(String text, UUID playerID)
+	public static void setLoreText(String text, ItemStack stack)
 	{
 		String[] lines = Stream.of(text.split("\n")).filter(str -> !str.isEmpty()).toArray(String[]::new);
 		if (lines.length == 0)
 			return;
 		
-		ContainerLore container = LoreweaversAnvil.proxy.playerMap.get(playerID);
-		if (container == null)
-			return;
-		
-		ItemStack stack = container.anvilHandler.getStackInSlot(1);
 		NBTTagCompound tag = stack.getTagCompound();
 		if (tag == null)
 			stack.setTagCompound(tag = new NBTTagCompound());
